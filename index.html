@@ -471,9 +471,11 @@ header {
     box-shadow: 0 -6px 20px rgba(74, 29, 44, 0.35);
 }
 
-#dev-credit i.fa-code {
+#dev-credit i.fa-heart {
     color: var(--rose-light);
-    margin: 0 4px;
+    margin-left: 6px;
+    animation: heartbeat 1.4s ease-in-out infinite;
+    display: inline-block;
 }
 
 #dev-credit a {
@@ -487,6 +489,11 @@ header {
     color: var(--rose-light);
     text-shadow: 0 0 10px rgba(248, 187, 208, 0.8);
     text-decoration: underline;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.18); }
 }
 
 @keyframes slideUp {
@@ -648,7 +655,7 @@ header {
         <div style="font-size: 12px; font-weight: bold; margin-bottom: 5px;">
             شكراً على زيارتكم، تابعونا على الإنستغرام
         </div>
-        <a href="https://www.instagram.com/la_rose_sucree_nadjoui" target="_blank">
+        <a href="https://www.instagram.com/la_rose_sucree_nadjoui/" target="_blank">
             <span>@la_rose_sucree_nadjoui</span>
             <i class="fas fa-external-link-alt" style="font-size: 10px;"></i>
         </a>
@@ -657,35 +664,48 @@ header {
 </div>
 
 <div id="dev-credit">
-    <i class="fas fa-heart" style="color: var(--rose-light); margin-left: 6px; animation: heartbeat 1.4s ease-in-out infinite;"></i>
+    <i class="fas fa-heart"></i>
     Developed By
     <a href="https://www.instagram.com/hami_mma/" target="_blank">@Hami_mma</a>
 </div>
-
-<style>
-@keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    50%      { transform: scale(1.18); }
-}
-</style>
 
 <script>
 const menuItems = [
 
     /* ========== ☕ المشروبات ========== */
-    {name: "Espresso", category: "coffee", price: "8 Dinar", image: "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=800", description: "إسبريسو"},
-    {name: "Double Espresso", category: "coffee", price: "12 Dinar", image: "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=800", description: "إسبريسو دوبل"},
-    {name: "Americano", category: "coffee", price: "10 Dinar", image: "https://images.unsplash.com/photo-1551030173-122aabc4489c?w=800", description: "أمريكانو"},
-    {name: "Cappuccino", category: "coffee", price: "15 Dinar", image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=800", description: "كابتشينو"},
-    {name: "Latte", category: "coffee", price: "15 Dinar", image: "https://images.unsplash.com/photo-1561882468-9110e03e0f78?w=800", description: "لاتيه"},
-    {name: "Flat White", category: "coffee", price: "15 Dinar", image: "https://images.unsplash.com/photo-1577968897966-3d4325b36b61?w=800", description: "فلات وايت"},
-    {name: "Mocha", category: "coffee", price: "18 Dinar", image: "https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=800", description: "موكا"},
-    {name: "Turkish Coffee", category: "coffee", price: "12 Dinar", image: "https://images.unsplash.com/photo-1567696911980-2eed69a46042?w=800", description: "قهوة تركية"},
+
+    /* --- القهوة الساخنة --- */
+    {name: "Single Espresso", category: "coffee", price: "8 Dinar", image: "https://brot.ae/cdn/shop/files/Single_Espresso.webp?v=1745579527", description: "إسبريسو سنجل"},
+    {name: "Double Espresso", category: "coffee", price: "12 Dinar", image: "https://brot.ae/cdn/shop/files/double-espresso-side-view-Photoroom_450x450.jpg?v=1745579487", description: "إسبريسو دبل"},
+    {name: "Americano", category: "coffee", price: "7 Dinar", image: "https://cdn.shopify.com/s/files/1/0669/0966/7619/files/americano-coffee-in-white-cup-crema-on-wood-table-wrexham-bean.webp?v=1745258094", description: "أمريكانو"},
+    {name: "Cappuccino (M)", category: "coffee", price: "15 Dinar", image: "https://smallcakesbakery.com/wp-content/uploads/2024/01/capuccino.png", description: "كابتشينو وسط"},
+    {name: "Cappuccino (L)", category: "coffee", price: "22 Dinar", image: "https://media-cdn.tripadvisor.com/media/photo-s/12/4f/61/57/huge-cappuccino.jpg", description: "كابتشينو كبير"},
+    {name: "Latte (M)", category: "coffee", price: "15 Dinar", image: "https://sleepyowl.co/cdn/shop/files/YHF02067_19_2_-min.jpg?v=1661156583", description: "لاتيه وسط"},
+    {name: "Latte (L)", category: "coffee", price: "18 Dinar", image: "https://staresso.com/cdn/shop/articles/What_is_a_latte.jpg?v=1716606481", description: "لاتيه كبير"},
+    {name: "Flat White", category: "coffee", price: "15 Dinar", image: "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/flat-white-d8ada0f.jpg", description: "فلات وايت"},
+    {name: "Cortado", category: "coffee", price: "10 Dinar", image: "https://cdn.shopify.com/s/files/1/0801/7530/0936/files/WK_Social_10062022_4_2048x2048.png?v=1711995048", description: "كورتادو"},
+    {name: "Decaf Coffee", category: "coffee", price: "10 Dinar", image: "https://vaya.in/recipes/wp-content/uploads/2018/05/Decaf-Coffee.jpg", description: "قهوة بدون كافيين"},
+    {name: "Spanish Latte (M)", category: "coffee", price: "15 Dinar", image: "https://www.homegrounds.co/wp-content/uploads/2022/07/spanish-latte--1200x900.jpeg", description: "لاتيه إسباني وسط"},
+    {name: "Spanish Latte (L)", category: "coffee", price: "18 Dinar", image: "https://brewthatcoffee.com/wp-content/uploads/2024/03/spanish-latte.png", description: "لاتيه إسباني كبير"},
+    {name: "Turkish Coffee", category: "coffee", price: "10 Dinar", image: "https://livingthegourmet.com/wp-content/uploads/2022/08/Traditional-Turkish-Coffee-11.jpg", description: "قهوة تركية"},
+    {name: "Dark Mocha", category: "coffee", price: "15 Dinar", image: "https://samhancloud.com/wp-content/uploads/2022/06/DSC08693.jpg", description: "موكا دارك"},
+    {name: "White Mocha", category: "coffee", price: "15 Dinar", image: "https://bakingmischief.com/wp-content/uploads/2018/04/homemade-white-chocolate-mocha-image-square.jpg", description: "موكا وايت"},
     {name: "Hot Chocolate", category: "coffee", price: "18 Dinar", image: "https://images.unsplash.com/photo-1542990253-a781e04c0082?w=800", description: "شوكولاتة ساخنة"},
+
+    /* --- الشاي والأعشاب --- */
+    {name: "Hot Ginger", category: "coffee", price: "10 Dinar", image: "https://cdn.img.sarabic.ae/img/07e5/01/13/1047841497_0:0:2000:1333_1920x0_80_0_0_9b94ab1b8309d214604b6373a606b68f.jpg", description: "زنجبيل حار"},
+    {name: "Anise Tea", category: "coffee", price: "5 Dinar", image: "https://buraq31.odoo.com/web/image/product.template/52/image_1024?unique=3ca2506", description: "ينسون"},
+    {name: "Hibiscus Tea", category: "coffee", price: "5 Dinar", image: "https://vid.alarabiya.net/images/2021/07/30/467e02bf-010c-439a-97ac-bed4afc627e7/467e02bf-010c-439a-97ac-bed4afc627e7.jpg?crop=1:1&width=1000", description: "كركديه"},
+    {name: "Fenugreek Tea", category: "coffee", price: "5 Dinar", image: "https://media.gemini.media/img/large/2021/8/2/2021_8_2_17_4_1_515.jpg", description: "حلبة"},
+    {name: "Black Tea", category: "coffee", price: "5 Dinar", image: "https://shamlola.s3.amazonaws.com/Shamlola_Images/3/src/feb4c042a95017f45d9f197ba0941b307fd09f77.jpg", description: "شاي أحمر"},
+    {name: "Green Tea", category: "coffee", price: "5 Dinar", image: "https://roguecommunityhealth.org/wp-content/uploads/2024/09/benefits-green-tea-scaled.webp", description: "شاي أخضر"},
+    {name: "Moroccan Tea", category: "coffee", price: "25 Dinar", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1oO1hnm58gDk7-Z1nRly_vsdxWV7ldxPErCFx6Coutx3-b7m8hRBeG8P5&s=10", description: "شاي مغربي"},
+    {name: "Thyme Tea", category: "coffee", price: "5 Dinar", image: "https://static.webteb.net/images/content/tbl_articles_article_28908_302bcbd9e37-c26a-4259-a696-892dd3a54167.jpg", description: "زعتر"},
+
+    /* --- المشروبات الباردة --- */
     {name: "Iced Latte", category: "coffee", price: "18 Dinar", image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=800", description: "آيس لاتيه"},
     {name: "Iced Mocha", category: "coffee", price: "20 Dinar", image: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=800", description: "آيس موكا"},
     {name: "Fresh Orange Juice", category: "coffee", price: "15 Dinar", image: "https://images.unsplash.com/photo-1613478223719-2ab802602423?w=800", description: "عصير برتقال طازج"},
-    {name: "Moroccan Tea", category: "coffee", price: "15 Dinar", image: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=800", description: "شاي مغربي"},
 
     /* ========== 🧁 الحلويات ========== */
     {name: "Cheesecake", category: "dessert", price: "25 Dinar", image: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=800", description: "تشيز كيك"},
